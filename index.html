@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#l3>input{
+    width: 240px;
+        border-color: blue;
+        padding: 12px;
+        margin: 8px;
+        border-radius: 4px;
+        display: grid;
+        place-items: center;
+        margin-top: 240px;
+        margin-left: 550px;
+}
+.L1{
+    margin-left: 620px;
+}
+#result{
+        margin-left: 600px;
+        font-size: 30px;
+        color: red;
+        padding-top: 5px;
+}
+    </style>
+</head>
+<body>
+   <div id="l3"><input type="number" placeholder="gross salary" id="l2"/></div>
+   <button class="L1" onclick="netSalary()">CALCULATE</button>
+   <div id="result"></div>
+
+   <script>
+    function netSalary(){
+        const gross =document.getElementById("l2").value
+        var tax =''
+        var nhif = ''
+        var nssf = ''
+        if(gross <24000){
+            tax  = gross*0.1
+        }else if(gross >=24000 && gross<32333){
+            tax = gross*0.25
+        }else{
+            tax = gross*0.3
+        }
+
+        nssf=gross*0.06
+        if(gross <6000){
+            nhif=150
+    }else if(gross >=6000 && gross<8000){
+        nhif=300
+    }else if(gross >=8000 && gross<12000){
+        nhif=400
+    }else if(gross >=12000 && gross<15000){
+        nhif=500
+    }else if(gross >=15000 && gross<20000){
+        nhif=600
+    }else if(gross >=20,000 && gross<2500){
+        nhif=750
+    }else if(gross >=25,000 && gross<30000){
+        nhif=850
+    }else if(gross >=30,000 && gross<35000){
+        nhif=900
+    }else if(gross >=35,000 && gross<40000){
+        nhif=950
+    }else if(gross >=40000 && gross<45000){
+        nhif=1000
+    }else if(gross >=45000 && gross<50000){
+        nhif=1100
+    }else if(gross >=50000 && gross<60000){
+        nhif=1200
+    }else if(gross >=60000 && gross<70000){
+        nhif=1300
+    }else if(gross >=70000 && gross<80000){
+        nhif=1400
+    }else if(gross >=80000 && gross<90000){
+        nhif=1500
+    }else if(gross >=90000 && gross<100000){
+        nhif=1600
+    }else {
+        nhif=1700
+    }
+    const deductions = tax+nssf+nhif
+    document.getElementById('result').innerHTML= deductions
+    }
+
+   </script>
+</body>
+</html>
